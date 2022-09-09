@@ -1,0 +1,743 @@
+2022-09-06 12:08:37,195 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 06 Sep 2022 18:08:37 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 12:10:42,541 - root - ERROR - Failed to get healthz info attempt 2 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 06 Sep 2022 18:10:42 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 12:12:47,865 - root - ERROR - Failed to get healthz info attempt 3 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 06 Sep 2022 18:12:47 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 12:14:53,113 - root - ERROR - Failed to get healthz info attempt 4 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 06 Sep 2022 18:14:53 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 12:16:58,533 - root - ERROR - Failed to get healthz info attempt 5 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 06 Sep 2022 18:16:58 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 18:15:54,722 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Date': 'Wed, 07 Sep 2022 00:15:54 GMT', 'Set-Cookie': 'S=cloud_datalab_tunnel=ZdjmRvi0mAWumtt_CHlEimOa8XCD4NVilOd8YCrWxBo; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 18:18:00,299 - root - ERROR - Failed to get healthz info attempt 2 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 00:18:00 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=ZdjmRvi0mAWumtt_CHlEimOa8XCD4NVilOd8YCrWxBo; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 18:20:05,732 - root - ERROR - Failed to get healthz info attempt 3 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 00:20:05 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=ZdjmRvi0mAWumtt_CHlEimOa8XCD4NVilOd8YCrWxBo; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 18:22:11,247 - root - ERROR - Failed to get healthz info attempt 4 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 00:22:11 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=ZdjmRvi0mAWumtt_CHlEimOa8XCD4NVilOd8YCrWxBo; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-06 18:24:16,623 - root - ERROR - Failed to get healthz info attempt 5 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 00:24:16 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=ZdjmRvi0mAWumtt_CHlEimOa8XCD4NVilOd8YCrWxBo; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 08:43:59,067 - kedro.pipeline.node - ERROR - Node 'report_accuracy: report_accuracy([y_pred,y_test]) -> [z_output]' failed with error: 
+Failed to save outputs of node report_accuracy: report_accuracy([y_pred,y_test]) -> [z_output].
+The node definition contains a list of outputs ['z_output'], whereas the node function returned a 'NoneType'.
+2022-09-07 10:55:23,183 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 16:55:23 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 10:57:28,595 - root - ERROR - Failed to get healthz info attempt 2 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 16:57:28 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 10:59:33,990 - root - ERROR - Failed to get healthz info attempt 3 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 16:59:34 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:01:39,459 - root - ERROR - Failed to get healthz info attempt 4 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:01:39 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:03:44,732 - root - ERROR - Failed to get healthz info attempt 5 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:03:45 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:39:10,900 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:39:11 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:41:16,328 - root - ERROR - Failed to get healthz info attempt 2 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:41:16 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:43:21,604 - root - ERROR - Failed to get healthz info attempt 3 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:43:21 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:45:26,964 - root - ERROR - Failed to get healthz info attempt 4 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:45:27 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2022-09-07 11:47:32,272 - root - ERROR - Failed to get healthz info attempt 5 of 5.
+Traceback (most recent call last):
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp/_client.py", line 411, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api/healthz_service_api.py", line 134, in get_healthz_with_http_info
+    return self.api_client.call_api(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 364, in call_api
+    return self.__call_api(resource_path, method,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 181, in __call_api
+    response_data = self.request(
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/api_client.py", line 389, in request
+    return self.rest_client.GET(url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 230, in GET
+    return self.request("GET", url,
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.10/lib/python3.10/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Wed, 07 Sep 2022 17:47:32 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=AhUMZyywos2t016IR5Pokb5rfUEY6gmHqXuUa-BLTs4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+

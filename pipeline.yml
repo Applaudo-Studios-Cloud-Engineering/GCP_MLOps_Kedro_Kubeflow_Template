@@ -1,0 +1,289 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: kedro-experiment-
+  annotations: {pipelines.kubeflow.org/kfp_sdk_version: 1.8.13, pipelines.kubeflow.org/pipeline_compilation_time: '2022-09-08T16:05:38.752945',
+    pipelines.kubeflow.org/pipeline_spec: '{"description": "Convert from a Kedro pipeline
+      into a kfp container graph.", "inputs": [{"default": "0.8", "name": "train_fraction",
+      "optional": true}, {"default": "3", "name": "random_state", "optional": true},
+      {"default": "species", "name": "target_column", "optional": true}], "name":
+      "kedro-experiment"}'}
+  labels: {pipelines.kubeflow.org/kfp_sdk_version: 1.8.13}
+spec:
+  entrypoint: kedro-experiment
+  templates:
+  - name: data-volume-create
+    resource:
+      action: create
+      manifest: |
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: '{{workflow.name}}-default-data-volume'
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+    outputs:
+      parameters:
+      - name: data-volume-create-manifest
+        valueFrom: {jsonPath: '{}'}
+      - name: data-volume-create-name
+        valueFrom: {jsonPath: '{.metadata.name}'}
+      - name: data-volume-create-size
+        valueFrom: {jsonPath: '{.status.capacity.storage}'}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+  - name: data-volume-init
+    container:
+      args: [cp --verbose -r /home/kedro/data/* /home/kedro/datavolume]
+      command: [sh, -c]
+      image: us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: '1', memory: 1Gi}
+        requests: {cpu: '1', memory: 1Gi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/datavolume, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+    tolerations:
+    - {effect: NoSchedule, key: dedicated, operator: Equal, value: ml-ops}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    retryStrategy:
+      limit: 4
+      retryPolicy: Always
+      backoff: {duration: 60s, factor: 2}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: exit-handler-1
+    inputs:
+      parameters:
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    dag:
+      tasks:
+      - {name: data-volume-create, template: data-volume-create}
+      - name: data-volume-init
+        template: data-volume-init
+        dependencies: [data-volume-create]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+      - name: make-predictions
+        template: make-predictions
+        dependencies: [data-volume-create, data-volume-init, split]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: random_state, value: '{{inputs.parameters.random_state}}'}
+          - {name: target_column, value: '{{inputs.parameters.target_column}}'}
+          - {name: train_fraction, value: '{{inputs.parameters.train_fraction}}'}
+      - name: report-accuracy
+        template: report-accuracy
+        dependencies: [data-volume-create, data-volume-init, make-predictions, split]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: random_state, value: '{{inputs.parameters.random_state}}'}
+          - {name: target_column, value: '{{inputs.parameters.target_column}}'}
+          - {name: train_fraction, value: '{{inputs.parameters.train_fraction}}'}
+      - name: split
+        template: split
+        dependencies: [data-volume-create, data-volume-init]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: random_state, value: '{{inputs.parameters.random_state}}'}
+          - {name: target_column, value: '{{inputs.parameters.target_column}}'}
+          - {name: train_fraction, value: '{{inputs.parameters.train_fraction}}'}
+  - name: kedro-experiment
+    inputs:
+      parameters:
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    dag:
+      tasks:
+      - name: exit-handler-1
+        template: exit-handler-1
+        arguments:
+          parameters:
+          - {name: random_state, value: '{{inputs.parameters.random_state}}'}
+          - {name: target_column, value: '{{inputs.parameters.target_column}}'}
+          - {name: train_fraction, value: '{{inputs.parameters.train_fraction}}'}
+  - name: make-predictions
+    container:
+      args: [_, train_fraction, '{{inputs.parameters.train_fraction}}', random_state,
+        '{{inputs.parameters.random_state}}', target_column, '{{inputs.parameters.target_column}}']
+      command: [bash, -c, 'python -c ''import yaml, sys;load=lambda e: yaml.load(e,
+          Loader=yaml.FullLoader);params=dict(zip(sys.argv[1::2], [load(e) for e in
+          sys.argv[2::2]]));f=open("config.yaml", "w");yaml.dump({"run": {"params":
+          params}}, f)'' "$@" &&kedro run --env local --pipeline __default__ --node
+          make_predictions --config config.yaml']
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      - {name: KUBEFLOW_RUN_ID, value: '{{workflow.uid}}'}
+      image: us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: '1', memory: 1Gi}
+        requests: {cpu: '1', memory: 1Gi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    tolerations:
+    - {effect: NoSchedule, key: dedicated, operator: Equal, value: ml-ops}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    retryStrategy:
+      limit: 4
+      retryPolicy: Always
+      backoff: {duration: 60s, factor: 2}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: on-exit
+    container:
+      args: [_, train_fraction, '{{inputs.parameters.train_fraction}}', random_state,
+        '{{inputs.parameters.random_state}}', target_column, '{{inputs.parameters.target_column}}',
+        status, '{{workflow.status}}', failures, '{{workflow.failures}}']
+      command: [bash, -c, 'python -c ''import yaml, sys;load=lambda e: yaml.load(e,
+          Loader=yaml.FullLoader);params=dict(zip(sys.argv[1::2], [load(e) for e in
+          sys.argv[2::2]]));f=open("config.yaml", "w");yaml.dump({"run": {"params":
+          params}}, f)'' "$@" &&kedro kubeflow delete-pipeline-volume {{workflow.name}}-default-data-volume']
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      - {name: KUBEFLOW_RUN_ID, value: '{{workflow.uid}}'}
+      image: us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: '1', memory: 1Gi}
+        requests: {cpu: '1', memory: 1Gi}
+      securityContext: {runAsUser: 0}
+    inputs:
+      parameters:
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    tolerations:
+    - {effect: NoSchedule, key: dedicated, operator: Equal, value: ml-ops}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    retryStrategy:
+      limit: 4
+      retryPolicy: Always
+      backoff: {duration: 60s, factor: 2}
+  - name: report-accuracy
+    container:
+      args: [_, train_fraction, '{{inputs.parameters.train_fraction}}', random_state,
+        '{{inputs.parameters.random_state}}', target_column, '{{inputs.parameters.target_column}}']
+      command: [bash, -c, 'python -c ''import yaml, sys;load=lambda e: yaml.load(e,
+          Loader=yaml.FullLoader);params=dict(zip(sys.argv[1::2], [load(e) for e in
+          sys.argv[2::2]]));f=open("config.yaml", "w");yaml.dump({"run": {"params":
+          params}}, f)'' "$@" &&kedro run --env local --pipeline __default__ --node
+          report_accuracy --config config.yaml']
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      - {name: KUBEFLOW_RUN_ID, value: '{{workflow.uid}}'}
+      image: us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: '1', memory: 1Gi}
+        requests: {cpu: '1', memory: 1Gi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    tolerations:
+    - {effect: NoSchedule, key: dedicated, operator: Equal, value: ml-ops}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    retryStrategy:
+      limit: 4
+      retryPolicy: Always
+      backoff: {duration: 60s, factor: 2}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: split
+    container:
+      args: [_, train_fraction, '{{inputs.parameters.train_fraction}}', random_state,
+        '{{inputs.parameters.random_state}}', target_column, '{{inputs.parameters.target_column}}']
+      command: [bash, -c, 'python -c ''import yaml, sys;load=lambda e: yaml.load(e,
+          Loader=yaml.FullLoader);params=dict(zip(sys.argv[1::2], [load(e) for e in
+          sys.argv[2::2]]));f=open("config.yaml", "w");yaml.dump({"run": {"params":
+          params}}, f)'' "$@" &&kedro run --env local --pipeline __default__ --node
+          split --config config.yaml']
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      - {name: KUBEFLOW_RUN_ID, value: '{{workflow.uid}}'}
+      image: us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: '1', memory: 1Gi}
+        requests: {cpu: '1', memory: 1Gi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: random_state}
+      - {name: target_column}
+      - {name: train_fraction}
+    tolerations:
+    - {effect: NoSchedule, key: dedicated, operator: Equal, value: ml-ops}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.8.13
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    retryStrategy:
+      limit: 4
+      retryPolicy: Always
+      backoff: {duration: 60s, factor: 2}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  arguments:
+    parameters:
+    - {name: train_fraction, value: '0.8'}
+    - {name: random_state, value: '3'}
+    - {name: target_column, value: species}
+  serviceAccountName: pipeline-runner
+  ttlStrategy: {secondsAfterCompletion: 604800}
+  onExit: on-exit

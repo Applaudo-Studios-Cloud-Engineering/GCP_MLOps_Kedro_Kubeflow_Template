@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-docker.pkg.dev/$PROJECT_ID/experiment-cloud-build/kedro-experiment:tag5', './Experiments/Cloud_Build_Kedro/kedro-experiment' ]
+images: 
+- 'us-docker.pkg.dev/$PROJECT_ID/experiment-cloud-build/kedro-experiment:tag5'
