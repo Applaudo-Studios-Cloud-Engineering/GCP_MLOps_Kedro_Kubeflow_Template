@@ -159,4 +159,54 @@ Note: If you see the Authorize Cloud Shell prompt, please select *Authorize* opt
 > **Summary**
 > At the end of this section, the Kubeflow Pipeline UI was exposed in localhost.
 
+9. However, it is necessary to expose Kubeflow Pipeline UI in a public URL to use the Kedro Kubeflow plugin. For this reason, reserve a regional IP on GCP.
+
+- Write ip adress in the top search bar and select this resource.
+
+![21-dominio](https://user-images.githubusercontent.com/93058462/190503489-24bf5c59-288d-4505-8246-eade33b6471c.png)
+
+- Select *reserve external static address* option in the top.
+
+![22-dominio](https://user-images.githubusercontent.com/93058462/190504482-79d42a82-bd7f-48eb-8f09-ba37364b5734.png)
+
+- Create a regional IPv4 with a representative name. Choose the region according to the cluster zone.
+
+![23-dominio](https://user-images.githubusercontent.com/93058462/190505387-8a6ca151-01c9-46a4-b610-8098865d6c47.png)
+
+- The IP address will be used for the DNS zone.
+
+10. Create a Cloud DNS zone on GCP.
+
+- Write dns in the top search bar and select this resource.
+
+![24-dominio](https://user-images.githubusercontent.com/93058462/190509056-cf37c47a-84c7-488a-97bd-4cd48d9f0d31.png)
+
+- Select *create zone* option in the top.
+
+![25-dominio](https://user-images.githubusercontent.com/93058462/190509839-17a6c7a2-f470-403f-91d8-3df58a891381.png)
+
+- Create a public DNS zone with a representative name. Write the domain in *DNS name* that you will use to expose Kubeflow Pipeline UI.
+
+![26-dominio](https://user-images.githubusercontent.com/93058462/190510653-9589e63a-6abf-492b-8cbe-23bc261516fb.png)
+
+Note: For this experiment, we use *crdemo.tk* free domain.
+
+- Once the DNS zone is created, enter in the zone name to see the configuration details. In the top bar, select the *add record set* option.
+
+![27-dominio](https://user-images.githubusercontent.com/93058462/190511728-119a7367-c317-4f17-959f-1998efdb4d61.png)
+
+
+
+
 ## Modifications to ML workflow
+
+1. Install the Kedro Kubeflow plugin usinf the following command.
+
+        $ pip install --upgrade kedro-kubeflow
+
+2. In the root of the Kedro project, use the *init* command with the URL argument to generate a kubeflow file (kubeflow.yaml) in conf/base.
+
+        $ kedro kubeflow init https://crdemo.tk/#/pipelines
+        Usage: kedro kubeflow init [URL]
+
+3. 
