@@ -195,8 +195,13 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 ![27-dominio](https://user-images.githubusercontent.com/93058462/190511728-119a7367-c317-4f17-959f-1998efdb4d61.png)
 
+- Add the reserved regional IP address in the *IPv4 Address* field and the rest with the default values.
 
+![28-dominio](https://user-images.githubusercontent.com/93058462/190515307-db069f19-f760-4dd3-bf0e-d24fa5700c73.png)
 
+- Once the type A recordset is added, select *registrar setup* and copy the records to configure with your registrar.
+
+![29-dominio](https://user-images.githubusercontent.com/93058462/190516235-895f7d0e-d3fb-449b-840a-ed298022aa44.png)
 
 ## Modifications to ML workflow
 
@@ -208,5 +213,3 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
         $ kedro kubeflow init https://crdemo.tk/#/pipelines
         Usage: kedro kubeflow init [URL]
-
-3. 
