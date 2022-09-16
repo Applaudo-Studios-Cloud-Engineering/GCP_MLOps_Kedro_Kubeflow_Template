@@ -283,7 +283,7 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 ## Modifications to ML workflow
 
-1. Install the Kedro Kubeflow plugin usinf the following command.
+1. Install the Kedro Kubeflow plugin using the following command.
 
         $ pip install --upgrade kedro-kubeflow
 
@@ -292,9 +292,15 @@ Note: For this experiment, we use *crdemo.tk* free domain.
         $ kedro kubeflow init https://crdemo.tk/#/pipelines
         Usage: kedro kubeflow init [URL]
 
-## Documentation 
+![35-ml](https://user-images.githubusercontent.com/93058462/190551779-105cacd3-884f-4904-a973-cfbd27c7ea74.png)
 
-| Tool | LINK |
+3. Prepare the docker image of the Kedro project. 
+
+## Documentation
+
+| Tool | Link |
 | ------ | ------ |
+| gcloud CLI| https://cloud.google.com/sdk/docs/initializing|
 | Ingress NGINX controller | https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx |
 | Cert-manager | https://artifacthub.io/packages/helm/cert-manager/cert-manager |
+| Kedro Kubeflow Plugin | https://kedro-kubeflow.readthedocs.io/en/latest/source/02_installation/01_installation.html |
