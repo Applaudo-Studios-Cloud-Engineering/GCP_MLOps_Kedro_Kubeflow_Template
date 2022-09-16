@@ -51,37 +51,37 @@ Note: If you see the Authorize Cloud Shell prompt, please select *Authorize* opt
 
 - Download the latest release.
 
-        $ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
 - Download the kubectl checksum file.
 
-        $ curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+        curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 
 - Validate the kubectl binary against the checksum file.
 
-        $ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check         # If valid, the output is OK
+        echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check         # If valid, the output is OK
 
 - Install kubectl.
 
-        $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ![4-kube](https://user-images.githubusercontent.com/93058462/190247172-ef7b8015-6674-4b89-bbce-ebae5e9813bd.png)
 
 5. Deploy Kubeflow Pipelines running the following commands (version 0.4.0 and higher) in Cloud Shell.
 
-        $ export PIPELINE_VERSION=1.8.5
+        export PIPELINE_VERSION=1.8.5
 
-        $ kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/cluster-scoped-resources?ref=$PIPELINE_VERSION"
+        kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/cluster-scoped-resources?ref=$PIPELINE_VERSION"
 
-        $ kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.io
+        kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.io
 
-        $ kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=$PIPELINE_VERSION"
+        kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=$PIPELINE_VERSION"
 
 ![5-kube](https://user-images.githubusercontent.com/93058462/190250726-13de6065-73a3-4870-9746-594256466b7b.png)
 
 6. Get the public URL for the Kubeflow Pipelines UI with the following command.
 
-        $ kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com
+        kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com
 
 ![6-kube](https://user-images.githubusercontent.com/93058462/190251320-39d6cb6c-34a7-4cf1-b367-ccdd1b84ef1e.png)
 
@@ -126,29 +126,29 @@ Note: If you see the Authorize Cloud Shell prompt, please select *Authorize* opt
 
 4. Deploy Kubeflow Pipelines running the following commands (version 0.4.0 and higher) in your terminal.
 
-        $ export PIPELINE_VERSION=1.8.5
+        export PIPELINE_VERSION=1.8.5
 
-        $ kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/cluster-scoped-resources?ref=$PIPELINE_VERSION"
+        kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/cluster-scoped-resources?ref=$PIPELINE_VERSION"
 
-        $ kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.io
+        kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.io
 
-        $ kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=$PIPELINE_VERSION"
+        kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=$PIPELINE_VERSION"
 
 5. To see all namespaces of the cluster, run the following command. If the Kubeflow Pipelines installation was successful, you will see a namespace named *kubeflow*.
 
-        $ kubectl get namespaces
+        kubectl get namespaces
 
 ![17-kubeflow](https://user-images.githubusercontent.com/93058462/190310988-0085ed02-3a5e-4758-9cc2-0756e76e9354.png)
 
 6. To see the services of the *kubeflow* namespace, run the following command in your terminal.
 
-        $ kubectl get svc -n kubeflow
+        kubectl get svc -n kubeflow
 
 ![18-kubeflow](https://user-images.githubusercontent.com/93058462/190311891-45713004-9094-4904-82b5-bd19fc2b8594.png)
 
 7. To expose the Kubeflow Pipelines UI service from localhost, run the following command.
 
-        $ kubectl port-forward svc/ml-pipeline-ui 8000:80 -n kubeflow       # Choose a different host port (8000)
+        kubectl port-forward svc/ml-pipeline-ui 8000:80 -n kubeflow       # Choose a different host port (8000)
 
 ![19-kubeflow](https://user-images.githubusercontent.com/93058462/190313112-807732f6-2369-4b63-bc04-b441094a091d.png)
 
@@ -205,11 +205,11 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 11. In the cluster, install the ingress NGINX controller using Helm and set the reserved IP address.
 
-- Add repo information. 
+- Add repo information.
 
-        $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+        helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
-        $ helm repo update
+        helm repo update
 
 - Create a namespace in the cluster for the ingress NGINX controller.
 
@@ -227,11 +227,11 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 - Install the cert-manager CustomResourceDefinition resources.
 
-        $ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.1/cert-manager.crds.yaml
+        kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.1/cert-manager.crds.yaml
 
 - Add the Jetstack Helm repository.
 
-        $ helm repo add jetstack https://charts.jetstack.io
+        helm repo add jetstack https://charts.jetstack.io
 
 - Create a namespace in the cluster for the cert-manager.
 
@@ -285,7 +285,7 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 1. Install the Kedro Kubeflow plugin using the following command.
 
-        $ pip install --upgrade kedro-kubeflow
+        pip install --upgrade kedro-kubeflow
 
 2. In the root of the Kedro project, use the *init* command with the URL argument to generate a kubeflow file (kubeflow.yaml) in conf/base.
 
@@ -294,13 +294,56 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 ![35-ml](https://user-images.githubusercontent.com/93058462/190551779-105cacd3-884f-4904-a973-cfbd27c7ea74.png)
 
-3. Prepare the docker image of the Kedro project. 
+3. Prepare the docker image of the Kedro project using the kedro-docker plugin. For this experiment, some project files were modified to make the image successful:
+
+- Added three python packages to the `requirements.txt` file: a) numpy (version 1.21.6), b) pandas (version 1.3.5), and c) gcsfs (version 2022.1.0).
+
+- Added the path of the GCP bucket where the outputs of each node will be stored to the `catalog.yml` file in conf/base.
+
+- Added a return in the *report_accuracy* function of the `nodes.py` file.
+
+- Change the node output of the *report_accuracy* function from none to accuracy in the `pipeline.py` file.
+
+4. Use the *compile* command with the image argument to generate a pipeline file (pipeline.yml).
+
+        $ kedro kubeflow compile -i us-docker.pkg.dev/crprueba-machine-learning/experiment-cloud-build/kedro-experiment:tag7
+        Usage: kedro kubeflow compile -i [IMAGE:TAG]
+
+5. Duplicate the pipeline.yml file to clean up some data according to the needs of the project. In this experiment, the pipeline-project.yml file is a copy of the  pipeline.yml file (original). To the pipeline-project.yml file everything related to the volumes was deleted.
+
+6. Select *upload pipeline* option in Kubeflow Pipeline UI.
+
+![40-ml](https://user-images.githubusercontent.com/93058462/190561014-3e8f77dc-0100-4182-afe8-138df633c079.png)
+
+7. Select a representative name for the pipeline. Later, upload the modified and clean pipeline.yml file according to the needs of the project.
+
+![41-ml](https://user-images.githubusercontent.com/93058462/190561022-4485af0d-86f8-476d-924f-fb24c6092901.png)
+
+8. Select the name of the created pipeline to see the details.
+
+![42-ml](https://user-images.githubusercontent.com/93058462/190561026-15139aa6-842e-47e7-aed8-9a769712469b.png)
+
+9. Select *create experiment* option.
+
+![43-ml](https://user-images.githubusercontent.com/93058462/190561029-9457410d-41a8-4a00-9522-d964e170530d.png)
+
+10. Type the name of the experiment and select *next*.
+
+![44-ml](https://user-images.githubusercontent.com/93058462/190561033-e07f2538-da36-4cd1-ae58-f4342c9489e1.png)
+
+11. Change the specific parameters if necessary. If you leave the default parameters, select *start*.
+
+![45-ml](https://user-images.githubusercontent.com/93058462/190561043-7ebe9c8b-2620-4e71-aa2b-03de259a63b6.png)
+
+12. Verify that the pipeline runs successfully.
+
+![46-ml](https://user-images.githubusercontent.com/93058462/190562412-a27d0f6b-60f8-47a6-81f6-627a759adb31.png)
 
 ## Documentation
 
 | Tool | Link |
 | ------ | ------ |
-| gcloud CLI| https://cloud.google.com/sdk/docs/initializing|
-| Ingress NGINX controller | https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx |
-| Cert-manager | https://artifacthub.io/packages/helm/cert-manager/cert-manager |
-| Kedro Kubeflow Plugin | https://kedro-kubeflow.readthedocs.io/en/latest/source/02_installation/01_installation.html |
+| gcloud CLI| <https://cloud.google.com/sdk/docs/initializing>|
+| Ingress NGINX controller | <https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx> |
+| Cert-manager | <https://artifacthub.io/packages/helm/cert-manager/cert-manager> |
+| Kedro Kubeflow Plugin | <https://kedro-kubeflow.readthedocs.io/en/latest/source/02_installation/01_installation.html> |
