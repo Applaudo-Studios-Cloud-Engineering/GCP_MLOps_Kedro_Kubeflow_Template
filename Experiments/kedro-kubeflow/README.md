@@ -157,7 +157,7 @@ Note: If you see the Authorize Cloud Shell prompt, please select *Authorize* opt
 ![20-kubeflow](https://user-images.githubusercontent.com/93058462/190313889-7c169796-ea5e-4092-8f3a-2184ce01b41b.png)
 
 > **Summary**
-> At the end of this section, the Kubeflow Pipeline UI was exposed in localhost.
+> After numeral 8, the Kubeflow Pipeline UI was exposed in localhost.
 
 9. However, it is necessary to expose Kubeflow Pipeline UI in a public URL to use the Kedro Kubeflow plugin. For this reason, reserve a regional IP on GCP.
 
@@ -203,6 +203,84 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
 ![29-dominio](https://user-images.githubusercontent.com/93058462/190516235-895f7d0e-d3fb-449b-840a-ed298022aa44.png)
 
+11. In the cluster, install the ingress NGINX controller using Helm and set the reserved IP address.
+
+- Add repo information. 
+
+        $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+        $ helm repo update
+
+- Create a namespace in the cluster for the ingress NGINX controller.
+
+        $ kubectl create namespace ingress-nginx
+        Usage: kubectl create namespace [NAMESPACE_NAME]
+
+- Install the ingress NGINX controller helm chart.
+
+        $ helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.service.loadBalancerIP=35.232.48.115 -n ingress-nginx
+        Usage: helm install [RELEASE_NAME] ingress-nginx/ingress-nginx -n [NAMESPACE_NAME]
+
+![30-dominio](https://user-images.githubusercontent.com/93058462/190522244-9e250641-6a76-4994-9328-e0681005ac91.png)
+
+12. In the cluster, install the ingress NGINX controller using Helm and set the reserved IP address.
+
+- Install the cert-manager CustomResourceDefinition resources.
+
+        $ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.1/cert-manager.crds.yaml
+
+- Add the Jetstack Helm repository.
+
+        $ helm repo add jetstack https://charts.jetstack.io
+
+- Create a namespace in the cluster for the cert-manager.
+
+        $ kubectl create namespace cert-manager
+        Usage: kubectl create namespace [NAMESPACE_NAME]
+
+- Install the cert-manager helm chart
+
+        $ helm install cert-manager --namespace cert-manager --version v1.8.1 jetstack/cert-manager
+        Usage: helm install [RELEASE_NAME] --namespace [NAMESPACE_NAME] --version v1.8.1 jetstack/cert-manager
+
+- Create a ClusterIssuer. This is a Kubernetes resource that represent certificate authorities that are able to generate signed certificates by honoring certificate signing requests. After, apply the ClusterIssuer file running the following command.
+
+        $ kubectl apply -f cluster-issuer.yaml -n cert-manager
+        Usage: kubectl apply -f [FILE_NAME] -n [NAMESPACE_NAME]
+
+- Check the status of the ClusterIssuer by running the command.
+
+        $ kubectl get clusterissuer -n cert-manager
+        Usage: kubectl get clusterissuer -n [NAMESPACE_NAME]
+
+![31-dominio](https://user-images.githubusercontent.com/93058462/190534501-23e26faf-8f92-4597-abb6-ffb993ed62d2.png)
+
+13. Finally, create an ingress to expose the Kubeflow Pipelines UI on your domain. After, apply the ingress file in the kubeflow namespace by running the following command.
+
+        $ kubectl apply -f ingress-kubeflow.yaml -n kubeflow
+        Usage: kubectl apply -f [FILE_NAME] -n [NAMESPACE_NAME]
+
+- Check the status of the certificate by running the command.
+
+        $ kubectl get certificate -n kubeflow
+        Usage: kubectl get certificate -n [NAMESPACE_NAME]
+
+![32-dominio](https://user-images.githubusercontent.com/93058462/190548754-c4d388b5-2d78-49ea-8743-133684161894.png)
+
+- Check the events of the certificate to know if the certificate was applied successfully.
+
+        $ kubectl describe certificate kubeflow-secret -n kubeflow
+        Usage: kubectl describe certificate [CERTIFICATE_NAME] -n [NAMESPACE_NAME]
+
+![33-dominio](https://user-images.githubusercontent.com/93058462/190549457-9bc73c8b-ff9b-4b2e-b877-06503fe11775.png)
+
+14. Write the domain in browser to see Kubeflow Pipelines UI.
+
+![34-kubeflow](https://user-images.githubusercontent.com/93058462/190549973-6f3a0ff1-d943-4bb2-85c1-6cb7a9fd7168.png)
+
+> **Summary**
+> At the end of this section, the Kubeflow Pipeline UI was exposed in a secure domain.
+
 ## Modifications to ML workflow
 
 1. Install the Kedro Kubeflow plugin usinf the following command.
@@ -213,3 +291,10 @@ Note: For this experiment, we use *crdemo.tk* free domain.
 
         $ kedro kubeflow init https://crdemo.tk/#/pipelines
         Usage: kedro kubeflow init [URL]
+
+## Documentation 
+
+| Tool | LINK |
+| ------ | ------ |
+| Ingress NGINX controller | https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx |
+| Cert-manager | https://artifacthub.io/packages/helm/cert-manager/cert-manager |
