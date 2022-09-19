@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubeflow-ingress
+  namespace: kubeflow
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls: 
+  - hosts: 
+    - crdemo.tk
+    secretName: secret-kubeflow
+  rules:
+    - host: "crdemo.tk"
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ml-pipeline-ui
+              port:
+                number: 80
